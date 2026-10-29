@@ -17,6 +17,8 @@ message("CMAKE_BUILD_TYPE  ${CMAKE_BUILD_TYPE}")
 set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
 
 set(RAYFORGE_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(RAYFORGE_MODULES_DIR ${RAYFORGE_PROJECT_DIR}/engine)
+set(RAYFORGE_3RD_PARTY_DIR ${RAYFORGE_MODULES_DIR}/3rdparty)
 
 include(FetchContent)
 
@@ -24,9 +26,9 @@ add_subdirectory(engine)
 
 add_executable(RayForge main.cpp)
 
-message("ENGINE_3RD_PARTY_DIR  ${ENGINE_3RD_PARTY_DIR}")
-
 target_include_directories(RayForge
-    PRIVATE ${RAYFORGE_PROJECT_DIR}/engine)
+    PUBLIC ${RAYFORGE_MODULES_DIR})
 
-target_link_libraries(RayForge PRIVATE raylib)
+target_link_libraries(RayForge
+    PRIVATE raylib
+    PUBLIC rf-core)

@@ -1,8 +1,5 @@
-# Use cmake_path to get the absolut
-set(ENGINE_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(ENGINE_MODULE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/modules)
-set(ENGINE_INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+add_subdirectory(${RAYFORGE_3RD_PARTY_DIR})
 
-set(ENGINE_3RD_PARTY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
-
-add_subdirectory(${ENGINE_3RD_PARTY_DIR})
+# Add engine modules
+add_subdirectory(${RAYFORGE_MODULES_DIR}/core)
+add_subdirectory(${RAYFORGE_MODULES_DIR}/debug)

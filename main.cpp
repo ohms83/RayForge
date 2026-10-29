@@ -1,14 +1,18 @@
 #include <iostream>
-#include "raylib.h"
+#include "RayForge.h"
+
+class MyApplication : public rf::Application
+{
+public:
+    MyApplication() = default;
+};
 
 int main() {
-    InitWindow(800, 600, "RayForge");
-    SetTargetFPS(60);
-    while (!WindowShouldClose()) {
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-        EndDrawing();
-    }
-    CloseWindow();
-    return 0;
+    rf::ApplicationConfig config;
+    config.windowWidth = 800;
+    config.windowHeight = 600;
+    config.windowTitle = "RayForge";
+    config.targetFPS = 60;
+
+    return rf::RunApplication<MyApplication>(config);
 }
