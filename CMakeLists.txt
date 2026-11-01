@@ -26,23 +26,4 @@ message("RAYFORGE_3RD_PARTY_DIR  ${RAYFORGE_3RD_PARTY_DIR}")
 include(FetchContent)
 
 add_subdirectory(engine)
-
-add_executable(RayForge main.cpp)
-
-target_include_directories(RayForge
-    PUBLIC ${RAYFORGE_MODULES_DIR}
-    PRIVATE ${RAYFORGE_PROJECT_DIR}/include
-)
-
-target_link_libraries(RayForge
-    PRIVATE raylib
-    PUBLIC rf-core)
-
-target_compile_definitions(RayForge PUBLIC
-    RF_PROJECT_PATH="${RAYFORGE_PROJECT_DIR}"
-    RF_ASSETS_DIR="${RAYFORGE_PROJECT_DIR}/assets"
-    RF_GENERATED_ASSETS_DIR="${RAYFORGE_PROJECT_DIR}/gen"
-    $<$<CONFIG:Debug>:RF_BUILD_DEBUG>
-    $<$<CONFIG:RelWithDebInfo>:RF_BUILD_RELWITHDEBINFO>
-    $<$<CONFIG:Release>:RF_BUILD_RELEASE>
-)
+add_subdirectory(examples)
