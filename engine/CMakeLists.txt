@@ -13,3 +13,12 @@ target_link_libraries(RayForge
     PRIVATE raylib
     PRIVATE rf-core
     PRIVATE rf-debug)
+
+target_compile_definitions(RayForge PUBLIC
+    RF_PROJECT_PATH="${RAYFORGE_PROJECT_DIR}"
+    RF_ASSETS_DIR="${RAYFORGE_PROJECT_DIR}/assets"
+    RF_GENERATED_ASSETS_DIR="${RAYFORGE_PROJECT_DIR}/gen"
+    $<$<CONFIG:Debug>:RF_BUILD_DEBUG>
+    $<$<CONFIG:RelWithDebInfo>:RF_BUILD_RELWITHDEBINFO>
+    $<$<CONFIG:Release>:RF_BUILD_RELEASE>
+)
