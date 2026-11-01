@@ -45,7 +45,7 @@ void Application::Update(float deltaTime)
 void Application::BeginDraw()
 {
     BeginDrawing();
-    ClearBackground(RAYWHITE);
+    ClearBackground(GRAY);
 }
 
 void Application::EndDraw()
