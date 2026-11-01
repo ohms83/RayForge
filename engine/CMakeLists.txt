@@ -10,9 +10,9 @@ target_include_directories(RayForge
     PUBLIC ${RAYFORGE_MODULES_DIR})
 
 target_link_libraries(RayForge
-    PRIVATE raylib
-    PRIVATE rf-core
-    PRIVATE rf-debug)
+    PUBLIC raylib
+    PUBLIC rf-core
+    PUBLIC rf-debug)
 
 target_compile_definitions(RayForge PUBLIC
     RF_PROJECT_PATH="${RAYFORGE_PROJECT_DIR}"
