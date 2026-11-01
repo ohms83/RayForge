@@ -23,12 +23,4 @@ set(RAYFORGE_3RD_PARTY_DIR ${RAYFORGE_MODULES_DIR}/3rdparty)
 include(FetchContent)
 
 add_subdirectory(engine)
-
-add_executable(RayForge main.cpp)
-
-target_include_directories(RayForge
-    PUBLIC ${RAYFORGE_MODULES_DIR})
-
-target_link_libraries(RayForge
-    PRIVATE raylib
-    PUBLIC rf-core)
+add_subdirectory(examples)

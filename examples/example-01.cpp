@@ -1,10 +1,9 @@
-#include <iostream>
 #include "RayForge.h"
 
-class MyApplication : public rf::Application
+class ExampleApplication : public rf::Application
 {
 public:
-    MyApplication() = default;
+    ExampleApplication() = default;
 };
 
 int main() {
@@ -14,5 +13,5 @@ int main() {
     config.windowTitle = "RayForge";
     config.targetFPS = 60;
 
-    return rf::RunApplication<MyApplication>(config);
+    return rf::RunApplication<ExampleApplication>(config);
 }
