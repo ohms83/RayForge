@@ -9,7 +9,13 @@ bool Application::Init(const ApplicationConfig &info)
 {
     InitWindow(info.windowWidth, info.windowHeight, info.windowTitle.c_str());
     SetTargetFPS(info.targetFPS);
-    return true;
+    if (info.enableFullscreen) {
+        ToggleFullscreen();
+    }
+    if (!info.showCursor) {
+        DisableCursor();
+    }
+    return Init_Internal(info);
 }
 
 int Application::BeginMainLoop()

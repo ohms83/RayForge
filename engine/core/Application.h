@@ -15,6 +15,11 @@ RF_NAMESPACE
         int windowHeight = 600;
         std::string windowTitle = "RayForge";
         int targetFPS = 60;
+        bool enableVSync = false;
+        bool enableFullscreen = false;
+        bool enableResizableWindow = false;
+        bool enableHighDPI = false;
+        bool showCursor = true;
     };
 
     class RF_API Application
@@ -28,6 +33,7 @@ RF_NAMESPACE
         void RequestQuit();
 
     protected:
+        virtual bool Init_Internal(const ApplicationConfig& info) { return true; }
         virtual void Update(float deltaTime);
         virtual void BeginDraw();
         virtual void EndDraw();
